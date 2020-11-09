@@ -77,7 +77,7 @@ plot_one_group <- function(x = sims,
           axis.text = element_text(colour = "black"),
           axis.title.x = element_text(margin = unit(c(2, 0, 0, 0), "mm")),
           axis.title.y = element_text(margin = unit(c(0, 4, 0, 0), "mm")),
-          legend.position = "right") +
+          legend.position = "top") +
     guides(colour = FALSE)
 
   # Plot the width of the 95% CI
@@ -86,7 +86,7 @@ plot_one_group <- function(x = sims,
     geom_line(data = both_data, aes(x = sample_size,
                                     y = prop_ci_contain,
                                     colour = id),
-              alpha = 0.8) +
+              alpha = 1) +
     scale_colour_manual(values = c("blue", "red"),
                         labels = c("Experimental", "Extrapolation")) +
     theme_classic() +
@@ -100,7 +100,7 @@ plot_one_group <- function(x = sims,
           axis.text = element_text(colour = "black"),
           axis.title.x = element_text(margin = unit(c(2, 0, 0, 0), "mm")),
           axis.title.y = element_text(margin = unit(c(0, 4, 0, 0), "mm")),
-          legend.position = "right")
+          legend.position = "top")
 
   # Return the plots
   cowplot::plot_grid(width_plot,
