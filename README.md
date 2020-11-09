@@ -2,12 +2,13 @@
 
 ## Installation
 
-Via GitHub:    
+**Via GitHub:**       
 `devtools::install_github("CJMvS/ThermalSampleR")`
 
-R Shiny Application:   
-Via GitHub:   
+**R Shiny Application:**      
+
+**Via GitHub:**      
 `shiny::runUrl("https://github.com/CJMvS/ThermalSampleR_Shiny/archive/main.tar.gz")`   
 
-Or on the Shiny Apps platform:   
+**Shiny Apps platform:**    
 https://clarkevansteenderen.shinyapps.io/ThermalSampleR_Shiny/    
