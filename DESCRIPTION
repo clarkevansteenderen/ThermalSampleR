@@ -1,0 +1,31 @@
+Package: ThermalSampleR
+Type: Package
+Title: Calculate Sample Sizes Required For Critical Thermal Limits Experiments
+Version: 0.1.0
+Authors@R: c(person("Guy Frederick", "Sutton", role = c("aut", "cre"),
+                     email = "g.sutton@ru.ac.za", comment = "Wrote original R functions"),
+            person("Clarke JM", "van Steenderen", role = "aut",
+                     email = "vsteenderen@gmail.com", comment = "Compiled the R package, and the associated R Shiny App"))
+Maintainer: Guy Sutton <g.sutton@ru.ac.za>
+Description: This package presents a range of simulations to aid researchers in determining appropriate sample sizes when performing critical
+    thermal limits studies (e.g. CTmin/CTmin experiments). A number of wrapper functions are provided for plotting and summarising outputs
+    from these simulations. These simulations are presented in Owen et al. (unpublished). Sample size determinination for critical thermal
+    limits studies.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 2.10)
+Imports: tidyr,
+    dplyr,
+    purrr,
+    rlang,
+    MASS (>= 7.3),
+    stats (>= 3.4.0),
+    graphics (>= 3.4.0),
+    base (>= 3.4.0),
+    magrittr,
+    utils,
+    ggplot2,
+    cowplot
+RoxygenNote: 7.1.1
