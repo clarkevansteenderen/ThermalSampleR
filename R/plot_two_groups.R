@@ -19,6 +19,10 @@
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations.
 #' Defaults to 3.
+#' @param colour_exp
+#' @param colour_extrap
+#' @param legend.position
+#' @param ggtheme
 #' @import ggplot2
 #' @importFrom cowplot plot_grid
 #' @importFrom dplyr bind_rows
@@ -34,14 +38,17 @@
 #'                         iter = 99)
 #' plots <- plot_two_groups(x = sims,
 #'                          n_min = 3,
-#'                          n_max = 30)
+#'                          n_max = 30,
+#'                          colour_exp = "gold",
+#'                          colour_extrap = "darkgreen",
+#'                          legend.position = "right")
 #'
 
 utils::globalVariables(c("id", 'sd_width_lower', 'sd_width_upper',  'prop_ci_contain'))
 
-plot_two_groups <- function(x,
-                            n_min = 3,
-                            n_max){
+plot_two_groups <- function(x, n_min = 3, n_max, colour_exp = "blue", colour_extrap = "red", legend.position = "top", ggtheme = theme_classic(), point_size = 1, point_shape = 16){
+
+  ggplot2::theme_set(ggtheme)
 
   # Create dataframe for experimental data
   exp_data <- {{ x }} %>%
@@ -61,14 +68,14 @@ plot_two_groups <- function(x,
                                     y = width_ci,
                                     colour = id),
               alpha = 0.8) +
-    scale_colour_manual(values = c("blue", "red"),
+    scale_colour_manual(values = c(colour_exp, colour_extrap),
                         labels = c("Experimental", "Extrapolation")) +
     geom_ribbon(data = both_data, aes(ymin = sd_width_lower,
                                       ymax = sd_width_upper,
                                       fill = id),
                 linetype = 3,
                 alpha = 0.2) +
-    scale_fill_manual(values = c("blue", "red"),
+    scale_fill_manual(values = c(colour_exp, colour_extrap),
                       labels = c("Experimental", "Extrapolation")) +
     theme_classic() +
     geom_hline(yintercept = 0,
@@ -97,13 +104,13 @@ plot_two_groups <- function(x,
                                       fill = id),
                 linetype = 3,
                 alpha = 0.2) +
-    scale_fill_manual(values = c("blue", "red"),
+    scale_fill_manual(values = c(colour_exp, colour_extrap),
                       labels = c("Experimental", "Extrapolation")) +
-    geom_point(data = both_data, aes(x = sample_size,
+    geom_point(data = both_data, size = point_size, shape = point_shape, aes(x = sample_size,
                                      y = mean_diff,
                                      colour = id),
                alpha = 0.8) +
-    scale_colour_manual(values = c("blue", "red"),
+    scale_colour_manual(values = c(colour_exp, colour_extrap),
                         labels = c("Experimental", "Extrapolation")) +
     theme_classic() +
     geom_hline(yintercept = 0, linetype = "dashed") +
@@ -115,7 +122,7 @@ plot_two_groups <- function(x,
           axis.text = element_text(colour = "black"),
           axis.title.x = element_text(margin = unit(c(2, 0, 0, 0), "mm")),
           axis.title.y = element_text(margin = unit(c(0, 4, 0, 0), "mm")),
-          legend.position = c(0.8, 0.85),
+          legend.position = legend.position,
           legend.key = element_rect(linetype = "dashed")) +
     guides(colour = "none")
 

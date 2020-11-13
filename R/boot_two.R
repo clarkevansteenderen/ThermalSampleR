@@ -24,6 +24,10 @@
 #' @param response Numeric. Column containing thermal limit data for individual samples.
 #' @param group1 String. Name of first population to compare.
 #' @param group2 String. Name of second population to compare.
+#' @param colour_exp Colour of the experimental data. Defaults to "blue".
+#' @param colour_extrap Colour of the extrapolated data. Defaults to "red".
+#' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
+#' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
 #'
 #' @return A data frame of bootstrap resamples
 #' @importFrom magrittr %>%

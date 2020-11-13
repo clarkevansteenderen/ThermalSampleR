@@ -10,6 +10,14 @@
 
 \item{n_min}{Numeric. Minimum sample size to extrapolate simulations.
 Defaults to 3.}
+
+\item{colour_exp}{Colour of the experimental data. Defaults to "blue".}
+
+\item{colour_extrap}{Colour of the extrapolated data. Defaults to "red".}
+
+\item{legend.position}{Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".}
+
+\item{ggtheme}{The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().}
 }
 \description{
 Plot output from boot_one.
@@ -22,6 +30,9 @@ sims <- boot_one(coreid_data,
                     response = response)
 plot_one_group(x = sims,
                n_min = 3,
-               n_max = 15)
+               n_max = 15,
+               colour_exp = "darkblue",
+               colour_extrap = "green",
+               legend.position = "right")
 
 }

@@ -19,6 +19,14 @@
 \item{group1}{String. Name of first population to compare.}
 
 \item{group2}{String. Name of second population to compare.}
+
+\item{colour_exp}{Colour of the experimental data. Defaults to "blue".}
+
+\item{colour_extrap}{Colour of the extrapolated data. Defaults to "red".}
+
+\item{legend.position}{Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".}
+
+\item{ggtheme}{The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().}
 }
 \value{
 A data frame of bootstrap resamples

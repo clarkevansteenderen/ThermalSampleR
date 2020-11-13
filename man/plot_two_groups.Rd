@@ -24,6 +24,9 @@ sims <- boot_two(data = coreid_data,
                         iter = 99)
 plots <- plot_two_groups(x = sims,
                          n_min = 3,
-                         n_max = 30)
+                         n_max = 30,
+                         colour_exp = "gold",
+                         colour_extrap = "darkgreen",
+                         legend.position = "right")
 
 }

@@ -19,6 +19,10 @@
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations.
 #' Defaults to 3.
+#' @param colour_exp Colour of the experimental data. Defaults to "blue".
+#' @param colour_extrap Colour of the extrapolated data. Defaults to "red".
+#' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
+#' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr between
 #' @export
@@ -30,14 +34,17 @@
 #'                     response = response)
 #' plot_one_group(x = sims,
 #'                n_min = 3,
-#'                n_max = 15)
+#'                n_max = 15,
+#'                colour_exp = "darkblue",
+#'                colour_extrap = "green",
+#'                legend.position = "right")
 #'
 
 utils::globalVariables(c('id', 'sd_width_lower', 'sd_width_upper', 'sims', 'prop_ci_contain'))
 
-plot_one_group <- function(x = sims,
-                           n_min = 3,
-                           n_max){
+plot_one_group <- function(x = sims, n_max, n_min = 3, colour_exp = "blue", colour_extrap = "red", legend.position = "top", ggtheme = theme_classic()){
+
+  ggplot2::theme_set(ggtheme)
 
   # Create dataframe for experimental data
   exp_data <- {{ x }} %>%
@@ -56,17 +63,19 @@ plot_one_group <- function(x = sims,
     geom_line(data = both_data, aes(x = sample_size,
                                     y = width_ci,
                                     colour = id),
+
               alpha = 0.8) +
-    scale_colour_manual(values = c("blue", "red"),
+    scale_colour_manual(values = c(colour_exp, colour_extrap),
                         labels = c("Experimental", "Extrapolation")) +
     geom_ribbon(data = both_data, aes(ymin = sd_width_lower,
                                       ymax = sd_width_upper,
                                       fill = id),
                 linetype = 3,
                 alpha = 0.2) +
-    scale_fill_manual(values = c("blue", "red"),
+    scale_fill_manual(values = c(colour_exp, colour_extrap),
                       labels = c("Experimental", "Extrapolation")) +
-    theme_classic() +
+    #ggtheme +
+
     geom_hline(yintercept = 0,
                linetype = "dashed") +
     labs(x = "Sample size (n)",
@@ -77,7 +86,7 @@ plot_one_group <- function(x = sims,
           axis.text = element_text(colour = "black"),
           axis.title.x = element_text(margin = unit(c(2, 0, 0, 0), "mm")),
           axis.title.y = element_text(margin = unit(c(0, 4, 0, 0), "mm")),
-          legend.position = "top") +
+          legend.position = legend.position) +
     guides(colour = FALSE)
 
   # Plot the width of the 95% CI
@@ -86,10 +95,11 @@ plot_one_group <- function(x = sims,
     geom_line(data = both_data, aes(x = sample_size,
                                     y = prop_ci_contain,
                                     colour = id),
+
               alpha = 1) +
-    scale_colour_manual(values = c("blue", "red"),
+    scale_colour_manual(values = c(colour_exp, colour_extrap),
                         labels = c("Experimental", "Extrapolation")) +
-    theme_classic() +
+    #ggtheme +
     geom_hline(yintercept = 0.90,
                linetype = "dashed") +
     labs(x = "Sample size (n)",
@@ -100,7 +110,7 @@ plot_one_group <- function(x = sims,
           axis.text = element_text(colour = "black"),
           axis.title.x = element_text(margin = unit(c(2, 0, 0, 0), "mm")),
           axis.title.y = element_text(margin = unit(c(0, 4, 0, 0), "mm")),
-          legend.position = "top")
+          legend.position = legend.position)
 
   # Return the plots
   cowplot::plot_grid(width_plot,
