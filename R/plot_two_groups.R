@@ -19,10 +19,10 @@
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations.
 #' Defaults to 3.
-#' @param colour_exp
-#' @param colour_extrap
-#' @param legend.position
-#' @param ggtheme
+#' @param colour_exp Colour of the experimental data. Defaults to "blue".
+#' @param colour_extrap Colour of the extrapolated data. Defaults to "red".
+#' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
+#' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
 #' @import ggplot2
 #' @importFrom cowplot plot_grid
 #' @importFrom dplyr bind_rows
