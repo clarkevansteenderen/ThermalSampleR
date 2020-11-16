@@ -47,7 +47,7 @@ boot_two <- function(data,
                             groups_col,
                             n_max,
                             n_min = 3,
-                            iter = 29,
+                            iter = 499,
                             response,
                             group1,
                             group2){
