@@ -24,7 +24,7 @@
 #' @param groups_which Character. Which population should be analysed?
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations. Defaults to 3.
-#' @param iter Numeric. Number of bootstrap samples to draw. Defaults to 29.
+#' @param iter Numeric. Number of bootstrap samples to draw. Defaults to 499.
 #' @param response Numeric. Column containing thermal limit data for individual samples
 #' @return A data frame of CTL summary statistics from bootstrap resamples
 #'
@@ -38,7 +38,7 @@
 #'                     groups_which = "Catorhintha schaffneri_APM",
 #'                     response = response,
 #'                     n_max = 49,
-#'                     iter = 99)
+#'                     iter = 499)
 #' @export
 
 
@@ -54,7 +54,7 @@ boot_one <- function(data,
                         groups_which,
                         n_max,
                         n_min = 3,
-                        iter = 29,
+                        iter = 499,
                         response) {
 
   # Perform boostrap sampling
