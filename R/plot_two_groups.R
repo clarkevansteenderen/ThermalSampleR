@@ -35,7 +35,7 @@
 #'                         group1 = "Catorhintha schaffneri_APM",
 #'                         group2 = "Catorhintha schaffneri_NPM",
 #'                         n_max = 30,
-#'                         iter = 99)
+#'                         iter = 499)
 #' plots <- plot_two_groups(x = sims,
 #'                          n_min = 3,
 #'                          n_max = 30,
