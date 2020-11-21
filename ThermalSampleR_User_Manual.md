@@ -92,7 +92,7 @@ and larvae (NPM)), applying 29 iterations.
 bt_two <- boot_two(data = coreid_data, groups_col = col, response = response, group1 = "Catorhintha schaffneri_APM", group2 = "Catorhintha schaffneri_NPM", n_max = 49, iter = 29)
 ```
 
-#### Plot results for two group <a name = "plot_two"></a>
+#### Plot results for two groups <a name = "plot_two"></a>
 
 ``` r
 plot_two_groups(x = bt_two, n_min = 3, n_max = 30, colour_exp = "blue", colour_extrap = "red", legend.position = "right", alpha_val = 0.25)
