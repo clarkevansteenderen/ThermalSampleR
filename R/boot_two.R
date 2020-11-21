@@ -20,10 +20,14 @@
 #' @param groups_col Factor. Column containing names of two populations to compare
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations. Defaults to 3.
-#' @param iter Numeric. Number of bootstrap samples to draw. Defaults to 499.
+#' @param iter Numeric. Number of bootstrap samples to draw. Defaults to 29.
 #' @param response Numeric. Column containing thermal limit data for individual samples.
 #' @param group1 String. Name of first population to compare.
 #' @param group2 String. Name of second population to compare.
+#' @param colour_exp Colour of the experimental data. Defaults to "blue".
+#' @param colour_extrap Colour of the extrapolated data. Defaults to "red".
+#' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
+#' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
 #'
 #' @return A data frame of bootstrap resamples
 #' @importFrom magrittr %>%
@@ -35,7 +39,7 @@
 #'                         group1 = "Catorhintha schaffneri_APM",
 #'                         group2 = "Catorhintha schaffneri_NPM",
 #'                         n_max = 49,
-#'                         iter = 499)
+#'                         iter = 99)
 #' @export
 
 
@@ -47,7 +51,7 @@ boot_two <- function(data,
                             groups_col,
                             n_max,
                             n_min = 3,
-                            iter = 499,
+                            iter = 29,
                             response,
                             group1,
                             group2){

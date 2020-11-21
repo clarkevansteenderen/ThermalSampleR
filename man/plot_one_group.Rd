@@ -17,6 +17,8 @@ Defaults to 3.}
 
 \item{legend.position}{Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".}
 
+\item{alpha_val}{Change the degree of shading of the graphs. Default is 0.2.}
+
 \item{ggtheme}{The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().}
 }
 \description{

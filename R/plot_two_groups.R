@@ -22,6 +22,7 @@
 #' @param colour_exp Colour of the experimental data. Defaults to "blue".
 #' @param colour_extrap Colour of the extrapolated data. Defaults to "red".
 #' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
+#' @param alpha_val Change the degree of shading of the graphs. Default is 0.2.
 #' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
 #' @import ggplot2
 #' @importFrom cowplot plot_grid
@@ -35,7 +36,7 @@
 #'                         group1 = "Catorhintha schaffneri_APM",
 #'                         group2 = "Catorhintha schaffneri_NPM",
 #'                         n_max = 30,
-#'                         iter = 499)
+#'                         iter = 99)
 #' plots <- plot_two_groups(x = sims,
 #'                          n_min = 3,
 #'                          n_max = 30,
@@ -46,7 +47,7 @@
 
 utils::globalVariables(c("id", 'sd_width_lower', 'sd_width_upper',  'prop_ci_contain'))
 
-plot_two_groups <- function(x, n_min = 3, n_max, colour_exp = "blue", colour_extrap = "red", legend.position = "top", ggtheme = theme_classic(), point_size = 1, point_shape = 16){
+plot_two_groups <- function(x, n_min = 3, n_max, colour_exp = "blue", colour_extrap = "red", legend.position = "top", ggtheme = theme_classic(), point_size = 1, point_shape = 16, alpha_val = 0.2){
 
   ggplot2::theme_set(ggtheme)
 
@@ -74,7 +75,7 @@ plot_two_groups <- function(x, n_min = 3, n_max, colour_exp = "blue", colour_ext
                                       ymax = sd_width_upper,
                                       fill = id),
                 linetype = 3,
-                alpha = 0.2) +
+                alpha = alpha_val) +
     scale_fill_manual(values = c(colour_exp, colour_extrap),
                       labels = c("Experimental", "Extrapolation")) +
     theme_classic() +
@@ -103,7 +104,7 @@ plot_two_groups <- function(x, n_min = 3, n_max, colour_exp = "blue", colour_ext
                                       ymax = mean_upp_ci,
                                       fill = id),
                 linetype = 3,
-                alpha = 0.2) +
+                alpha = alpha_val) +
     scale_fill_manual(values = c(colour_exp, colour_extrap),
                       labels = c("Experimental", "Extrapolation")) +
     geom_point(data = both_data, size = point_size, shape = point_shape, aes(x = sample_size,

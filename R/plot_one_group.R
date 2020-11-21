@@ -22,6 +22,7 @@
 #' @param colour_exp Colour of the experimental data. Defaults to "blue".
 #' @param colour_extrap Colour of the extrapolated data. Defaults to "red".
 #' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
+#' @param alpha_val Change the degree of shading of the graphs. Default is 0.2.
 #' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr between
@@ -42,7 +43,7 @@
 
 utils::globalVariables(c('id', 'sd_width_lower', 'sd_width_upper', 'sims', 'prop_ci_contain'))
 
-plot_one_group <- function(x = sims, n_max, n_min = 3, colour_exp = "blue", colour_extrap = "red", legend.position = "top", ggtheme = theme_classic()){
+plot_one_group <- function(x = sims, n_max, n_min = 3, colour_exp = "blue", colour_extrap = "red", legend.position = "top", alpha_val = 0.2, ggtheme = theme_classic()){
 
   ggplot2::theme_set(ggtheme)
 
@@ -71,7 +72,7 @@ plot_one_group <- function(x = sims, n_max, n_min = 3, colour_exp = "blue", colo
                                       ymax = sd_width_upper,
                                       fill = id),
                 linetype = 3,
-                alpha = 0.2) +
+                alpha = alpha_val) +
     scale_fill_manual(values = c(colour_exp, colour_extrap),
                       labels = c("Experimental", "Extrapolation")) +
     #ggtheme +
