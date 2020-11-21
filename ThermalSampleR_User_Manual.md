@@ -81,7 +81,7 @@ plot_one_group(x = bt_one, n_min = 3, n_max = 15, colour_exp = "forestgreen", co
 
 ![](Figs/unnamed-chunk-3-1.png)<!-- -->
 
-:bulb: The alpha value changes the degree of shading on the graph.
+:bulb: The alpha value changes the degree of shading on the graph. You can change the colour of the experimental data points by using the ``colour_exp`` argument, and the extrapolated data points using ``colour_extrap``.
 
 #### Bootstrap two groups <a name = "bootstrap_two"></a>
 
@@ -99,6 +99,8 @@ plot_two_groups(x = bt_two, n_min = 3, n_max = 30, colour_exp = "blue", colour_e
 ```
 
 ![](Figs/unnamed-chunk-5-1.png)<!-- -->
+
+:bulb: Point size and shape can be altered using ``point_size`` and ``point_shape``, respectively. 
 
 #### Save the bootstrapped data table
 
