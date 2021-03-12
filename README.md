@@ -12,6 +12,12 @@ Owen, C.A., Sutton, G.F., Martin, G.D., van Steenderen, C.J.M., and Coetzee, J.A
 **Via GitHub:**       
 `devtools::install_github("CJMvS/ThermalSampleR")`
 
+Once the package has been installed, you need to call the package into your current R session: 
+
+```{r}
+library(ThermalSampleR)
+```
+
 **R Shiny Application:**      
 
 **Via GitHub:**      
@@ -20,10 +26,22 @@ Owen, C.A., Sutton, G.F., Martin, G.D., van Steenderen, C.J.M., and Coetzee, J.A
 **Shiny Apps platform:**    
 https://clarkevansteenderen.shinyapps.io/ThermalSampleR_Shiny/    
 
-## 2. Basic usage 
+## 2. Loading your raw data 
 
-Once the package has been installed, you need to call the package into your current R session: 
+A full worked example will be outlined in the following sections. The first step is to load in your raw critical thermal limits raw data. Input files must be saved in .csv format, with two columns: one column containing unique species names (indicated by the `Group` column below) and another column containing the response variable, with each row representing a single individual that has been tested (e.g. Critical Thermal Limit temperature data) (indicated by the `CTL_min` column below). For example:   
+
+| Group     | CTL_min |
+|-----------|:------------:|
+| Species A |      5     |
+| Species A |      6     |
+| Species B |      4     |
+| Species B |      3     |
+| Species C |      4     |
+| Species C |      6     |
+
+Alternatively, `ThermalSampleR` comes with an example dataset, named `coreid_data`. The following worked example will use this as input.
 
 ```{r}
-library(ThermalSampleR)
+coreid = ThermalSampleR::coreid_data
+head(coreid)
 ```
