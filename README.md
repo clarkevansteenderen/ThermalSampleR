@@ -43,5 +43,5 @@ Alternatively, `ThermalSampleR` comes with an example dataset, named `coreid_dat
 
 ```{r}
 coreid = ThermalSampleR::coreid_data
-head(coreid)
+print(coreid)
 ```
