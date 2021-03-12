@@ -136,23 +136,24 @@ plot_one_group(
 
 ![](README_files/figure-gfm/boot_one_plot-1.png)<!-- -->
 
-Inspecting panel (a), we visualisation the precision of our CTmin
-estimate for *Catorhintha schaffneri*, whereby precision is measured as
-the width of a 95% confidence interval. For example, in the context of
-CTLs, a CI width of 1 indicates that practitioners can be 95% confident
-that their CTL estimate is within 1 degree Celsius of the true CTmin
-value. The smaller the CI width, the greater the precision of the CTL
-estimate.
+Inspecting panel (a), we visualise the precision of our CTmin estimate
+for *Catorhintha schaffneri*, whereby precision is measured as the width
+of a 95% confidence interval. For example, in the context of CTLs, a CI
+width of 1 indicates that practitioners can be 95% confident that their
+CTL estimate is within 1 degree Celsius of the true CTmin value. The
+smaller the CI width, the greater the precision of the CTL estimate.
 
-In this example, we can see that the 95% confidence interval is
-estimated to reach a plateau once approximately n = 40 individuals are
-tested. The plateau is in the extrapolated section of the graph
-indicating that more individuals would need to be tested for the 95%
-confidence interval to become stable. However, at the existing sample
-size of n = 15, the researchers could be relatively confident that the
-CTmin estimate they have obtained is accurate to about 1.2 - 1.5 degrees
+In this example, the precision of our CTmin estimate was high and is not
+predicted to improve substantially by increasing sample size, once
+approximately n = 20 individuals are tested, as the 95% confidence
+interval reaches a plateau at n = 20. The plateau is in the
+extrapolation section of the graph indicating that more individuals
+would need to be tested for the 95% confidence interval to become
+approximately stable. However, at the existing sample size of n = 15,
+the researchers could be relatively confident that the CTmin estimate
+they have obtained is precise to within approximately 1.2 - 1.5 degrees
 Celsius. Researchers will need to decide for themselves what an
-acceptable degree of uncertainty is for their own datasets.
+acceptable degree of precision is for their own datasets.
 
 Inspecting panel (b), we visualise the sampling distribution (i.e. the
 range of plausible CTmin values) for the taxa under study. This
@@ -165,10 +166,19 @@ included the estimated population parameter. An accurate parameter
 estimate should produce CI’s that, on \~ 95% of occasions, contain the
 estimated population parameter.
 
-In this example, we can see that the proportion of 95% CI’s containing
-the estimated population parameter was often much lower than the
-expectation that 95% of the CI’s for a given sample size should ideally
-contain the population parameter. However, as noted above, because our
+In this example, the accuracy of our CTmin estimate was high once n &gt;
+10 individuals were tested. The proportion of 95% CI’s containing the
+estimated population parameter approximated the expectation that 95% of
+the CI’s for a given sample size should ideally contain the population
+parameter once n = 10 were tested. As noted above, because our
 population parameter for *Catorhintha schaffneri* was estimated from n =
 15 individuals tested, our assessment of parameter accuracy may be bias,
 and thus, should be interpreted with caution.
+
+***Take-home message***: As long as the researchers were content with
+obtaining a CTmin estimate for *Catorhintha schaffneri* with a precision
+of approximately 1.2 - 1.5 degrees Celsius, the experiment could be
+concluded at n = 15 individuals tested. Adding additional samples above
+n = 15 would likely improve the precision of the CTmin estimate,
+however, the gain in precision must be considered in light of the
+logistics, costs and ethics of testing additional specimens.
