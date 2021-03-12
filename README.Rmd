@@ -47,7 +47,7 @@ The simplest application of `ThermalSampleR` is to evaluate whether a study has 
 
 We use a bootstrap resampling procedure to estimate the width of the 95% confidence interval of our CTmin estimate across a range of sample sizes, which defaults to starting at n = 3 individuals tested, and which can be extrapolated to sample sizes greater than the sample size of your existing data by specifying a value to `n_max`. 
 
-```{r}
+```{r boot_one_sim, cache = TRUE}
 bt_one = boot_one(
   # Which dataframe does the data come from? 
   data = coreid_data, 
@@ -66,7 +66,7 @@ head(bt_one)
 
 The resulting variable should then be passed to the `plot_one_group` function to visualise the simulation results. A number of optional parameters can be passed to the function to alter the aesthetics of the graphs. 
 
-```{r, fig.width=14, fig.height=6}
+```{r boot_one_plot, fig.width=14, fig.height=6}
 plot_one_group(
   # Variable containing the output from running `boot_one` function
   x = bt_one, 
@@ -84,7 +84,7 @@ plot_one_group(
   alpha_val = 0.25)
 ```
 
-Inspecting panel (a), we visualisation the precision of our CTmin estimate for *Catorhintha schaffneri*, whereby precision is measured as the width of a 95% confidence interval. For example, in the context of CTLs, a CI width of 1 indicates that practitioners can be 95% confident that their CTL estimate is within 1ÅãC of the true CTmin value. The smaller the CI width, the greater the precision of the CTL estimate.  
+Inspecting panel (a), we visualisation the precision of our CTmin estimate for *Catorhintha schaffneri*, whereby precision is measured as the width of a 95% confidence interval. For example, in the context of CTLs, a CI width of 1 indicates that practitioners can be 95% confident that their CTL estimate is within 1 degree Celsius of the true CTmin value. The smaller the CI width, the greater the precision of the CTL estimate.  
 
 In this example, we can see that the 95% confidence interval is estimated to reach a plateau once approximately n = 40 individuals are tested. The plateau is in the extrapolated section of the graph indicating that more individuals would need to be tested for the 95% confidence interval to become stable. However, at the existing sample size of n = 15, the researchers could be relatively confident that the CTmin estimate they have obtained is accurate to about 1.2 - 1.5 degrees Celsius. Researchers will need to decide for themselves what an acceptable degree of uncertainty is for their own datasets. 
 
