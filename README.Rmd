@@ -41,13 +41,17 @@ coreid <- ThermalSampleR::coreid_data
 head(coreid)
 ```
 
-## 3. Sample size assessments - Single taxon 
+## 3. Sample size assessments - Single taxon
 
-The simplest application of `ThermalSampleR` is to evaluate whether a study has used a sufficient sample size to estimate the critical thermal limits for a single taxon. Below, we perform these calculations to estimate sample sizes required to accurately estimate the CTmin of adults of the a twig-wilting insect *Catorhintha schaffneri* (denoted by `Catorintha schaffneri_APM` in our dataframe). 
+The simplest application of `ThermalSampleR` is to evaluate whether a study has used a sufficient sample size to estimate the critical thermal limits for a single taxon. Below, we perform these calculations to estimate sample sizes required to accurately estimate the CTmin of adults of the a stem-wilting insect *Catorhintha schaffneri* (denoted by `Catorintha schaffneri_APM` in our dataframe) (Muskett et al., 2020). 
 
 We use a bootstrap resampling procedure to estimate the width of the 95% confidence interval of our CTmin estimate across a range of sample sizes, which defaults to starting at n = 3 individuals tested, and which can be extrapolated to sample sizes greater than the sample size of your existing data by specifying a value to `n_max`. 
 
 ```{r boot_one_sim, cache = TRUE}
+# Set a seed to make the results reproducible, for illustrative purposes. 
+set.seed(2012)
+
+# Perform simulations 
 bt_one = boot_one(
   # Which dataframe does the data come from? 
   data = coreid_data, 
@@ -55,16 +59,16 @@ bt_one = boot_one(
   groups_col = col, 
   # Provide the name of the taxon to be tested
   groups_which = "Catorhintha schaffneri_APM", 
-  # Provide the name with the response variable (e.g CTmin data)
+  # Provide the name of the column containing the response variable (e.g CTmin data)
   response = response, 
   # Maximum sample sample to extrapolate to 
   n_max = 49, 
   # How many bootstrap resamples should be drawn? 
   iter = 299)
-head(bt_one)
+dplyr::glimpse(bt_one)
 ```
 
-The resulting variable should then be passed to the `plot_one_group` function to visualise the simulation results. A number of optional parameters can be passed to the function to alter the aesthetics of the graphs. 
+The variable containing the bootstrap resamples should then be passed to the `plot_one_group` function to visualise the simulation results. A number of optional parameters can be passed to the function to alter the aesthetics of the graphs. 
 
 ```{r boot_one_plot, fig.width=14, fig.height=6}
 plot_one_group(
@@ -78,7 +82,7 @@ plot_one_group(
   colour_exp = "forestgreen", 
   # Colour for the extrapolated predictions 
   colour_extrap = "orange", 
-  # Position of the legened
+  # Position of the legend
   legend.position = "right", 
   # Change the degree of shading on the graph 
   alpha_val = 0.25)
@@ -93,6 +97,73 @@ Inspecting panel (b), we visualise the sampling distribution (i.e. the range of 
 In this example, the accuracy of our CTmin estimate was high once n > 10 individuals were tested. The proportion of 95% CI's containing the estimated population parameter  approximated the expectation that 95% of the CI's for a given sample size should ideally contain the population parameter once n = 10 were tested. As noted above, because our population parameter for *Catorhintha schaffneri* was estimated from n = 15 individuals tested, our assessment of parameter accuracy may be bias, and thus, should be interpreted with caution. 
 
 ***Take-home message***: As long as the researchers were content with obtaining a CTmin estimate for *Catorhintha schaffneri* with a precision of approximately 1.2 - 1.5 degrees Celsius, the experiment could be concluded at n = 15 individuals tested. Adding additional samples above n = 15 would likely improve the precision of the CTmin estimate, however, the gain in precision must be considered in light of the logistics, costs and ethics of testing additional specimens. 
+
+## 4. Sample size assessments - Comparing 2 taxa
+
+`ThermalSampleR` also allows the user to estimate sample size adequacy for studies comparing the critical thermal limits across multiple taxa. For example, the built-in example data (`coried`) in `ThermalSampleR` contains CTmin data for 30 adults and 30 nymphs of the twig-wilting bug *Catorhintha schaffneri*. The bug was imported from Brazil into South Africa, where it has been released as a biological control agent of an invasive plant, *Pereskia aculeata* (Muskett et al., 2020). Researchers may be interested in determining whether releasing adults or nymphs would lead to better establishment rates in the field. As such, the researchers could assess the CTmin of each life-stage, and use these data to release the life-stage with the lower CTmin value, as they would be assumed to better tolerate low temperatures. 
+
+We apply a similar workflow as per the 'Single Taxon' assessments above. We use a bootstrap resampling procedure to estimate the width of the 95% confidence interval of the difference in CTmin estimates between our two groups of interest (*Catorhintha schaffneri* adults vs nymphs) across a range of sample sizes, which defaults to starting at n = 3 individuals tested, and which can be extrapolated to sample sizes greater than the sample size of your existing data by specifying a value to `n_max`.  
+
+```{r boot_two_sim, cache = TRUE}
+# Set a seed to make the results reproducible, for illustrative purposes. 
+set.seed(2012)
+
+# Perform simulations 
+bt_two <- boot_two(
+  # Which dataframe does the data come from? 
+  data = coreid_data, 
+  # Provide the column name containing the taxon ID
+  groups_col = col, 
+  # Provide the name of the column containing the response variable (e.g CTmin data)
+  response = response, 
+  # Provide the name of the first taxon to be compared
+  group1 = "Catorhintha schaffneri_APM", 
+  # Provide the name of the second taxon to be compared
+  group2 = "Catorhintha schaffneri_NPM", 
+  # Maximum sample sample to extrapolate to 
+  n_max = 49, 
+  # How many bootstrap resamples should be drawn? 
+  iter = 299)
+dplyr::glimpse(bt_two)
+```
+
+The variable containing the bootstrap resamples should then be passed to the `plot_two_group` function to visualise the simulation results. A number of optional parameters can be passed to the function to alter the aesthetics of the graphs. 
+
+```{r boot_two_plot, fig.width=14, fig.height=6}
+plot_two_groups(
+  # Variable containing the output from running `boot_two` function
+  x = bt_two, 
+  # Minimum sample size to plot
+  n_min = 3, 
+  # Actual size of your existing dataset 
+  n_max = 30, 
+  # Colour for your experimental data
+  colour_exp = "blue", 
+  # Colour for the extrapolated predictions 
+  colour_extrap = "red", 
+  # Position of the legend
+  legend.position = "right", 
+  # Change the degree of shading on the graph 
+  alpha_val = 0.25)
+```
+
+Panel (a) can be interpreted analogously to panel (a) produced during the 'Single Taxon' assessments above. Here, we are visualising the precision of our estimate for the difference in CTmin for *Catorhintha schaffneri* adults vs nymphs across sample sizes. In this example, where n = 30 individuals were tested for both adults and nymphs of *Catorhintha schaffneri*, the precision of our estimated difference between the groups was high and is not predicted to improve substantially by increasing sample size as the 95% confidence interval reached a plateau at approximately n = 25. At n = 30, the researchers could be relatively confident that the difference in CTmin between adults and nymphs was within approximately 1.5 degrees Celsius. Agaibn, the researchers will need to decide for themselves what an acceptable degree of precision is for their own datasets. 
+
+In panel (b), we visualise the 95% confidence interval of the mean difference in CTmin between adults and nymphs. At n = 30 individuals tested, it appears that the CTmin of one taxon (*Catorhintha schaffneri* adults) may be slightly higher than for nymphs. However, the 95% CI overlaps 0, indicating that the CTmins of adults vs nymphs is unlikely to be significantly different. Moreover, limits of the 95% CI are relatively stable, indicating that adding additional samples is unlikely to change the results obtained. 
+
+***Take-home message***: As long as the researchers were content with obtaining an  estimate for the difference in CTmin between *Catorhintha schaffneri* adults and nymphs with a precision of approximately 1.5 degrees Celsius, the experiment could be concluded at n = 30 individuals tested. Adding additional samples above n = 30 would likely improve the precision of estimate, however, the gain in precision must be considered in light of the logistics, costs and ethics of testing additional specimens. 
+
+## Acknowledgments 
+
+The authors would like to thank Pippa Muskett for providing the example data. 
+
+## References 
+
+Muskett, P.C., Paterson, I.D., and Coetzee, J.A. (2020). Ground-truthing climate-matching predictions in post-release evaluations. Biological Control 144: 104217. [\underline{PDF}](https://www.sciencedirect.com/science/article/abs/pii/S1049964419304669)
+
+
+
+
 
 
 
