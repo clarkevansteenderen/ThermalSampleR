@@ -159,7 +159,7 @@ The authors would like to thank Pippa Muskett for providing the example data.
 
 ## References 
 
-Muskett, P.C., Paterson, I.D., and Coetzee, J.A. (2020). Ground-truthing climate-matching predictions in post-release evaluations. Biological Control 144: 104217. [\underline{PDF}](https://www.sciencedirect.com/science/article/abs/pii/S1049964419304669)
+Muskett, P.C., Paterson, I.D., and Coetzee, J.A. (2020). Ground-truthing climate-matching predictions in post-release evaluations. Biological Control 144: 104217. [PDF](https://www.sciencedirect.com/science/article/abs/pii/S1049964419304669)
 
 
 
