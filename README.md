@@ -42,8 +42,8 @@ library(ThermalSampleR)
 ## 2. Loading your raw data
 
 A full worked example will be outlined in the following sections. The
-first step is to load in your raw critical thermal limits raw data.
-Input files must be saved in .csv format, with two columns: one column
+first step is to load in your raw critical thermal limits data. Input
+files must be saved in .csv format, with two columns: one column
 containing unique species names (indicated by the `col` column below)
 and another column containing the response variable, with each row
 representing a single individual that has been tested (e.g. Critical
@@ -152,7 +152,7 @@ CTL estimate is within 1 degree Celsius of the true CTmin value. The
 smaller the CI width, the greater the precision of the CTL estimate.
 
 In this example, the precision of our CTmin estimate was high and is not
-predicted to improve substantially by increasing sample size, once
+predicted to improve substantially by increasing sample size once
 approximately n = 20 individuals are tested, as the 95% confidence
 interval reaches a plateau at n = 20. The plateau is in the
 extrapolation section of the graph indicating that more individuals
@@ -165,11 +165,11 @@ acceptable degree of precision is for their own datasets.
 
 Inspecting panel (b), we visualise the sampling distribution (i.e. the
 range of plausible CTmin values) for the taxa under study. This
-assessment can produce bias results at small sample sizes because the
-population parameter (e.g. the taxons’ CTmin) is unknown, and therefore
-must be estimated from the experimental data. Panel B gives an
+assessment can produce biased results at small sample sizes because the
+population parameter (e.g. the taxon’s CTmin) is unknown and must
+therefore be estimated from the experimental data. Panel B gives an
 indication of parameter estimation accuracy by plotting the proportion
-of bootstrap resamples, across each sample size, for which the 95% CI
+of bootstrap resamples across each sample size for which the 95% CI
 included the estimated population parameter. An accurate parameter
 estimate should produce CI’s that, on \~ 95% of occasions, contain the
 estimated population parameter.
@@ -194,8 +194,9 @@ logistics, costs and ethics of testing additional specimens.
 ## 4. Sample size assessments - Comparing 2 taxa
 
 `ThermalSampleR` also allows the user to estimate sample size adequacy
-for studies comparing the critical thermal limits across multiple taxa.
-For example, the built-in example data (`coried`) in `ThermalSampleR`
+for studies comparing the critical thermal limits across multiple groups
+(e.g. different taxa, populations, treatments applied, sexes…). For
+example, the built-in example data (`coried`) in `ThermalSampleR`
 contains CTmin data for 30 adults and 30 nymphs of the twig-wilting bug
 *Catorhintha schaffneri*. The bug was imported from Brazil into South
 Africa, where it has been released as a biological control agent of an
@@ -287,15 +288,15 @@ between the groups was high and is not predicted to improve
 substantially by increasing sample size as the 95% confidence interval
 reached a plateau at approximately n = 25. At n = 30, the researchers
 could be relatively confident that the difference in CTmin between
-adults and nymphs was within approximately 1.5 degrees Celsius. Agaibn,
+adults and nymphs was within approximately 1.5 degrees Celsius. Again,
 the researchers will need to decide for themselves what an acceptable
 degree of precision is for their own datasets.
 
 In panel (b), we visualise the 95% confidence interval of the mean
 difference in CTmin between adults and nymphs. At n = 30 individuals
-tested, it appears that the CTmin of one taxon (*Catorhintha schaffneri*
+tested, it appears that the CTmin of one group (*Catorhintha schaffneri*
 adults) may be slightly higher than for nymphs. However, the 95% CI
-overlaps 0, indicating that the CTmins of adults vs nymphs is unlikely
+overlaps 0, indicating that the CTmins of adults and nymphs are unlikely
 to be significantly different. Moreover, limits of the 95% CI are
 relatively stable, indicating that adding additional samples is unlikely
 to change the results obtained.
@@ -311,12 +312,12 @@ specimens.
 
 ## Acknowledgments
 
-The authors would like to thank Pippa Muskett for providing example
-data.
+The authors would like to thank Pippa Muskett (Rhodes University, South
+Africa) for providing the example data.
 
 ## References
 
 Muskett, P.C., Paterson, I.D., and Coetzee, J.A. (2020). Ground-truthing
 climate-matching predictions in post-release evaluations. Biological
 Control 144: 104217.
-[](https://www.sciencedirect.com/science/article/abs/pii/S1049964419304669)
+[PDF](https://www.sciencedirect.com/science/article/abs/pii/S1049964419304669)
