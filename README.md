@@ -308,8 +308,14 @@ This function performs a Test of Total Equivalency, as developed by [Duffy et al
 Using the same coreid dataset, the function can be applied as follows:
 
 ```{r }
-tte = equiv_tost(data = coreid_data, groups_col = col, groups_which = "Catorhintha schaffneri_APM", response = response, 
-                 skews = c(1,10), equiv_margin = 1, pop_n = 5)
+tte = equiv_tost(data = coreid_data, # Which dataframe does the data come from? 
+                 groups_col = col, # Provide the column name containing the taxon ID
+                 groups_which = "Catorhintha schaffneri_APM", 
+                 response = response, # Provide the name of the column containing the response variable (e.g CTmin data)
+                 skews = c(1,10), # Define the skewness parameters
+                 equiv_margin = 1, # Define the equivalence of subsets to full population CT estimate (unit = degree Celcius)
+                 pop_n = 5 # Size of the population to sample (will test subsamples of size pop_n - x against pop_n for equivalence). Defaults to population size = 30
+                 )
 
 tte
 ```
