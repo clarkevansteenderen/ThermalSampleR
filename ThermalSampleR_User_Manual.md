@@ -81,7 +81,7 @@ plot_one_group(x = bt_one, n_min = 3, n_max = 15, colour_exp = "forestgreen", co
 
 ![](Figs/unnamed-chunk-3-1.png)<!-- -->
 
-:bulb: The alpha value changes the degree of shading on the graph. You can change the colour of the experimental data points by using the ``colour_exp`` argument, and the extrapolated data points using ``colour_extrap``.
+:bulb: The alpha value changes the degree of shading on the graph.
 
 #### Bootstrap two groups <a name = "bootstrap_two"></a>
 
@@ -92,15 +92,13 @@ and larvae (NPM)), applying 29 iterations.
 bt_two <- boot_two(data = coreid_data, groups_col = col, response = response, group1 = "Catorhintha schaffneri_APM", group2 = "Catorhintha schaffneri_NPM", n_max = 49, iter = 29)
 ```
 
-#### Plot results for two groups <a name = "plot_two"></a>
+#### Plot results for two group <a name = "plot_two"></a>
 
 ``` r
 plot_two_groups(x = bt_two, n_min = 3, n_max = 30, colour_exp = "blue", colour_extrap = "red", legend.position = "right", alpha_val = 0.25)
 ```
 
 ![](Figs/unnamed-chunk-5-1.png)<!-- -->
-
-:bulb: Point size and shape can be altered using ``point_size`` and ``point_shape``, respectively. 
 
 #### Save the bootstrapped data table
 

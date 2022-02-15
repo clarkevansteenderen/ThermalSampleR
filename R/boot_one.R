@@ -17,8 +17,8 @@
 #'
 #' @name boot_one
 #' @description Calculate mean and CI's of CTL for a single population
-#' @param data Data frame contain raw data. Must contain a column with a population
-#'             identifier (e.g. population ID), and a column containin critical
+#' @param data Data frame contains raw data. Must contain a column with a population
+#'             identifier (e.g. population ID), and a column containing critical
 #'             thermal limit data (e.g. temperatures at which critical limits are reached).
 #' @param groups_col Factor. Column containing name(s) of population(s) of interest
 #' @param groups_which Character. Which population should be analysed?

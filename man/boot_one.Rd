@@ -4,8 +4,8 @@
 \alias{boot_one}
 \title{Bootstrap sampling to calculate summary statistics of CTL values}
 \arguments{
-\item{data}{Data frame contain raw data. Must contain a column with a population
-identifier (e.g. population ID), and a column containin critical
+\item{data}{Data frame contains raw data. Must contain a column with a population
+identifier (e.g. population ID), and a column containing critical
 thermal limit data (e.g. temperatures at which critical limits are reached).}
 
 \item{groups_col}{Factor. Column containing name(s) of population(s) of interest}
