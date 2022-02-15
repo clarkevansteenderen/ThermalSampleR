@@ -1,2 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^Figs
+^ThermalSampleR_User_Manual.Rmd
+^ThermalSampleR_User_Manual.md
