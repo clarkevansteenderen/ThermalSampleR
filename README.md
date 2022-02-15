@@ -301,6 +301,21 @@ to be significantly different. Moreover, limits of the 95% CI are
 relatively stable, indicating that adding additional samples is unlikely
 to change the results obtained.
 
+# Test of Total Equivalency
+
+This function performs a Test of Total Equivalency, as developed by [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928).
+
+Using the same coreid dataset, the function can be applied as follows:
+
+```{r }
+tte = equiv_tost(data = coreid_data, groups_col = col, groups_which = "Catorhintha schaffneri_APM", response = response, 
+                 skews = c(1,10), equiv_margin = 1, pop_n = 5)
+
+tte
+```
+
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tte.png" height = 350>
+
 ***Take-home message***: As long as the researchers were content with
 obtaining an estimate for the difference in CTmin between *Catorhintha
 schaffneri* adults and nymphs with a precision of approximately 1.5
