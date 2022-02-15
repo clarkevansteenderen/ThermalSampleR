@@ -191,7 +191,7 @@ n = 15 would likely improve the precision of the CTmin estimate,
 however, the gain in precision must be considered in light of the
 logistics, costs and ethics of testing additional specimens.
 
-## 4. Sample size assessments - Comparing 2 taxa
+## 4. Sample size assessments - Comparing two taxa
 
 `ThermalSampleR` also allows the user to estimate sample size adequacy
 for studies comparing the critical thermal limits across multiple groups
@@ -301,7 +301,7 @@ to be significantly different. Moreover, limits of the 95% CI are
 relatively stable, indicating that adding additional samples is unlikely
 to change the results obtained.
 
-# Test of Total Equivalency
+## 5. Test of Total Equivalency
 
 This function performs a Test of Total Equivalency, as developed by [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928).
 
