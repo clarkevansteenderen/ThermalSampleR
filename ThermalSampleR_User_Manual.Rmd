@@ -7,6 +7,7 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(fig.path='Figs/')
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
 ### DOCUMENT CONTENTS
@@ -17,6 +18,7 @@ knitr::opts_chunk$set(fig.path='Figs/')
 5. [Plot results for one group](#plot_one)
 6. [Bootstrap two groups](#bootstrap_two)
 7. [Plot results for two groups](#plot_two)
+8. [Perform a Test of Total Equivalence](#TTE)
 
 
 ### Installation and Usage <a name = "installation"></a>
@@ -91,3 +93,16 @@ plot_two_groups(x = bt_two, n_min = 3, n_max = 30, colour_exp = "blue", colour_e
 
 Use the ``write.csv()`` function to save the results of the bootstrapping analysis to a desired directory. For example:   
 ``write.csv(bt_one, "C:/file_path/bt_one_results.csv")`` 
+
+### Perform a Test of Total Equivalence <a name = "TTE"></a>
+
+This function performs a Test of Total Equivalence using the approach by [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928).
+
+Using the same coreid dataset, the function can be applied as follows:
+
+```{r }
+tte = equiv_tost(data = coreid_data, groups_col = col, groups_which = "Catorhintha schaffneri_APM", response = response, 
+                 skews = c(1,10), equiv_margin = 1, pop_n = 5)
+
+tte
+```
