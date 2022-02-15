@@ -23,6 +23,7 @@
 #' @param skews Numeric vector containing skewness parameter(s)
 #' @param equiv_margin Equivalence of subsets to full population CT estimate (unit = degree Celcius)
 #' @param pop_n Size of population to sample (will test subsamples of size pop_n - x against pop_n for equivalence) Defaults to population size = 30
+#' @param colrs Colours of the skewness paramaters
 #' @return Two plots; (a) equivalence of means, and (b) equivalence of variances
 #'
 #' @importFrom magrittr %>%
@@ -36,6 +37,7 @@
 #'                     groups_which = "Catorhintha schaffneri_APM",
 #'                     response = response,
 #'                     skews = c(1,10),
+#'                     colrs = c("lightblue", "lightpink"),
 #'                     equiv_margin = 1,
 #'                     pop_n = 5)
 #' @export
@@ -49,6 +51,7 @@ equiv_tost = function(data,
                       groups_which,
                       response,
                       skews = c(0, 1, 2, 10, 50),
+                      colrs = c("blue", "red", "orange", "forestgreen", "lightgrey"),
                       equiv_margin = 1,
                       pop_n = 30) {
 
@@ -362,10 +365,14 @@ equiv_tost = function(data,
       y = mn,
       ymin = ymin,
       ymax = ymax,
+      scale_fill_manual(),
       fill = as.factor(grp),
       colour = as.factor(grp),
     )
-  ) + geom_ribbon(alpha = 0.5, linetype = 0) +
+  ) +
+    scale_fill_manual(values = colrs) +
+    scale_color_manual(values = colrs) +
+    geom_ribbon(alpha = 0.3, linetype = 0) +
     geom_line(size = 1.5) +
     labs(
       x = "Subsample size (n)",
@@ -437,7 +444,9 @@ equiv_tost = function(data,
       colour = as.factor(grp),
     )
   ) +
-    geom_ribbon(alpha = 0.5, linetype = 0) +
+    scale_fill_manual(values = colrs) +
+    scale_color_manual(values = colrs) +
+    geom_ribbon(alpha = 0.3, linetype = 0) +
     geom_line(size = 1.5) +
     labs(
       x = "Subsample size (n)",
