@@ -18,6 +18,8 @@ thermal limit data (e.g. temperatures at which critical limits are reached).}
 \item{equiv_margin}{Equivalence of subsets to full population CT estimate (unit = degree Celcius)}
 
 \item{pop_n}{Size of population to sample (will test subsamples of size pop_n - x against pop_n for equivalence) Defaults to population size = 30}
+
+\item{colrs}{Colours of the skewness paramaters}
 }
 \value{
 Two plots; (a) equivalence of means, and (b) equivalence of variances
@@ -33,6 +35,7 @@ res <- equiv_tost(data = coreid_data,
                     groups_which = "Catorhintha schaffneri_APM",
                     response = response,
                     skews = c(1,10),
+                    colrs = c("lightblue", "lightpink"),
                     equiv_margin = 1,
                     pop_n = 5)
 }
