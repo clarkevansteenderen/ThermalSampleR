@@ -142,7 +142,7 @@ plot_one_group(
   alpha_val = 0.25)
 ```
 
-<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/boot_one.png" height = 250>
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/boot_one.png" height = 350>
 
 Inspecting panel (a), we visualise the precision of our CTmin estimate
 for *Catorhintha schaffneri*, whereby precision is measured as the width
@@ -276,7 +276,7 @@ plot_two_groups(
   alpha_val = 0.25)
 ```
 
-<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/boot_two.png" height = 250>
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/boot_two.png" height = 350>
 
 Panel (a) can be interpreted analogously to panel (a) produced during
 the ‘Single Taxon’ assessments above. Here, we are visualising the
