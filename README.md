@@ -303,7 +303,7 @@ to change the results obtained.
 
 ## 5. Test of Total Equivalency
 
-This function performs a Test of Total Equivalency, as developed by [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928).
+This function performs a Test of Total Equivalency, as developed by [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928), and incorporates it into the ThermalSampleR package.
 
 Using the same coreid dataset, the function can be applied as follows:
 
