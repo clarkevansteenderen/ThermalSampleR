@@ -49,12 +49,11 @@ and another column containing the response variable, with each row
 representing a single individual that has been tested (e.g. Critical
 Thermal Limit temperature data) (indicated by the `response` column
 below). For example, you can inspect the built-in example data
-(`coried`) in `ThermalSampleR` to see how your data should be
+(`coried_data`) in `ThermalSampleR` to see how your data should be
 structured:
 
 ``` r
-coreid <- ThermalSampleR::coreid_data
-head(coreid)
+head(ThermalSampleR::coreid_data)
 ```
 
     ##                          col response
