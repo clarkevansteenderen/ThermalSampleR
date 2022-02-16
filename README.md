@@ -306,7 +306,7 @@ This function performs a Test of Total Equivalency, as developed by [Duffy et al
 
 Using the same coreid dataset, the function can be applied as follows:
 
-```{r }
+```{r}
 tte = equiv_tost(
     # Which dataframe does the data come from? 
     data = coreid_data, 
