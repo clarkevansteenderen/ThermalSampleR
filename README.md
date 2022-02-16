@@ -320,11 +320,11 @@ tte = equiv_tost(data = coreid_data, # Which dataframe does the data come from?
 tte
 ```
 
-<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tte.png" height = 350 width = 850>
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tte.png" height = 350 width = 550>
 
 ***Take-home message***: As long as the researchers were content with
 obtaining an estimate for the difference in CTmin between *Catorhintha
-schaffneri* adults and nymphs with a precision of approximately 1.5
+schaffneri* adults and nymphs with a precision of approximately 1
 degrees Celsius, the experiment could be concluded at n = 30 individuals
 tested. Adding additional samples above n = 30 would likely improve the
 precision of estimate, however, the gain in precision must be considered
