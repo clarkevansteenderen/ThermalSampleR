@@ -334,7 +334,7 @@ specimens.
 ## Acknowledgments
 
 The authors would like to thank Pippa Muskett (Rhodes University, South
-Africa) for providing the example data.
+Africa) for providing the example coreid data. Moreover, we would like to thank Grant Duffy (University of Otago, Dundedin, New Zealand) for granting us permission to use the source code for the Test of Total Equivalency function. 
 
 ## References
 
