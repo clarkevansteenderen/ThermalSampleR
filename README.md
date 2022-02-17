@@ -22,7 +22,7 @@ Coetzee, J.A. Sample size planning for critical thermal limits studies.
 ## 1. Installation
 
 **Via GitHub:**  
-`devtools::install_github("clarkevansteenderen/ThermalSampleR")`
+`devtools::install_github("CJMvS/ThermalSampleR")`
 
 Once the package has been installed, you need to call the package into
 your current R session:
@@ -34,7 +34,7 @@ library(ThermalSampleR)
 **R Shiny Application:**
 
 **Via GitHub:**  
-`shiny::runUrl("https://github.com/clarkevansteenderen/ThermalSampleR_Shiny/archive/main.tar.gz")`
+`shiny::runUrl("https://github.com/CJMvS/ThermalSampleR_Shiny/archive/main.tar.gz")`
 
 **Shiny Apps platform:**  
 <https://clarkevansteenderen.shinyapps.io/ThermalSampleR_Shiny/>
@@ -345,7 +345,7 @@ The more important application of the TOTE approach is to iteratively assess sam
 
 <img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tote_graph_readme_8.png" height = 350 width = 850>
 
-It is clearly evident that testing n = 8 individuals was not sufficient to obtain a reliable estimate of the CT trait in this example. The researchers would then add additional samples to their study (e.g. add another 10 individuals), and then re-test the sample size requirements, repeating the process until the TOTE curves plateu. 
+It is evident that testing 8 individuals was not sufficient to obtain a reliable estimate of the CT trait in this example. The researchers would then add additional samples to their study (e.g. add another 10 individuals), and then re-test the sample size requirements, repeating the process until the TOTE curves plateu. 
 
 ## Acknowledgments
 
