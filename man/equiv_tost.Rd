@@ -13,13 +13,13 @@ thermal limit data (e.g. temperatures at which critical limits are reached).}
 
 \item{response}{Numeric. Column containing thermal limit data for individual samples}
 
-\item{skews}{Numeric vector containing skewness parameter(s)}
+\item{skews}{Numeric. Vector containing skewness parameter(s)}
 
-\item{equiv_margin}{Equivalence of subsets to full population CT estimate (unit = degree Celcius)}
+\item{equiv_margin}{Numeric. Equivalence of subsets to full population CT estimate (unit = degree Celcius)}
 
-\item{pop_n}{Size of population to sample (will test subsamples of size pop_n - x against pop_n for equivalence) Defaults to population size = 30}
+\item{pop_n}{Numeric. Size of population to sample (will test subsamples of size pop_n - x against pop_n for equivalence) Defaults to population size = 30}
 
-\item{colrs}{Colours of the skewness paramaters}
+\item{colrs}{Character. Vector of colours for each skewness paramater value. E.g. if two skewness parameter values are set, choose two colours: colrs = c("blue", "red")}
 }
 \value{
 Two plots; (a) equivalence of means, and (b) equivalence of variances
