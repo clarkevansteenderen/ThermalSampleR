@@ -300,6 +300,15 @@ to be significantly different. Moreover, limits of the 95% CI are
 relatively stable, indicating that adding additional samples is unlikely
 to change the results obtained.
 
+***Take-home message***: As long as the researchers were content with
+obtaining an estimate for the difference in CTmin between *Catorhintha
+schaffneri* adults and nymphs with a precision of approximately 1
+degrees Celsius, the experiment could be concluded at n = 30 individuals
+tested. Adding additional samples above n = 30 would likely improve the
+precision of estimate, however, the gain in precision must be considered
+in light of the logistics, costs and ethics of testing additional
+specimens.
+
 ## 5. Test of Total Equivalency
 
 This function performs a Test of Total Equivalency, as developed by [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928), and incorporates it into the ThermalSampleR package.
@@ -321,7 +330,7 @@ tte = equiv_tost(
     # Define the equivalence of subsets to full population CT estimate (unit = degree Celcius)
     equiv_margin = 1, 
     # Size of the population to sample (will test subsamples of size pop_n - x against pop_n for equivalence). Defaults to population size = 30
-    pop_n = 5
+    pop_n = 30
 )
 
 # Inspect ouput 
@@ -330,14 +339,13 @@ tte
 
 <img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tote_graph_readme.png" height = 350 width = 850>
 
-***Take-home message***: As long as the researchers were content with
-obtaining an estimate for the difference in CTmin between *Catorhintha
-schaffneri* adults and nymphs with a precision of approximately 1
-degrees Celsius, the experiment could be concluded at n = 30 individuals
-tested. Adding additional samples above n = 30 would likely improve the
-precision of estimate, however, the gain in precision must be considered
-in light of the logistics, costs and ethics of testing additional
-specimens.
+Inspecting both panels indicates that the researchers would have been able to obtain CT estimates (in terms of both the mean and variance) equivalent to within 1 degree Celsius of the estimates derived from the full datset (n = 30) if they had tested approximately 10 - 12 individuals, irrespective of the skewness in the underlying data. Hindsight is a great tool. 
+
+The more important application of the TOTE approach is to iteratively assess sample sizes during the course of the experiment. For example, [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928) recommend collecting some pilot data, and then assess the sample size requirements to estimate CT traits. For example, had we tested 8 insects in a pilot study and assessed the sample size requirements, we would obtain the graph below. 
+
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tote_graph_readme_8.png" height = 350 width = 850>
+
+It is clearly evident that testing n = 8 individuals was not sufficient to obtain a reliable estimate of the CT trait in this example. The researchers would then add additional samples to their study (e.g. add another 10 individuals), and then re-test the sample size requirements, repeating the process until the TOTE curves plateu. 
 
 ## Acknowledgments
 
