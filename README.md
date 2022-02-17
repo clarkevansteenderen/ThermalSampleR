@@ -42,7 +42,8 @@ library(ThermalSampleR)
 shiny::runUrl("https://github.com/CJMvS/ThermalSampleR_Shiny/archive/main.tar.gz")
 ```
 
-**Shiny Apps platform:**  
+**Shiny Apps web server:** 
+
 <https://clarkevansteenderen.shinyapps.io/ThermalSampleR_Shiny/>
 
 ## 2. Loading your raw data
