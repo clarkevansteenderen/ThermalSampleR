@@ -361,7 +361,7 @@ Africa) for providing the example coreid data. Moreover, we would like to thank 
 
 ## References
 
-Duffy, G.A., Kuyucu, A.C., Hoskins, J.L., Hay, E.M., and Chown, S.L. (2021). Adequate sample sizes for improved accuracy of thermal trait estimates. Function Ecology 35: 2647-2662. [PDF](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.13928)
+Duffy, G.A., Kuyucu, A.C., Hoskins, J.L., Hay, E.M., and Chown, S.L. (2021). Adequate sample sizes for improved accuracy of thermal trait estimates. Functional Ecology 35: 2647-2662. [PDF](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.13928)
 
 Muskett, P.C., Paterson, I.D., and Coetzee, J.A. (2020). Ground-truthing
 climate-matching predictions in post-release evaluations. Biological
