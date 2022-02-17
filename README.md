@@ -22,7 +22,7 @@ Coetzee, J.A. Sample size planning for critical thermal limits studies.
 ## 1. Installation
 
 **Via GitHub:**  
-`devtools::install_github("CJMvS/ThermalSampleR")`
+`devtools::install_github("clarkevansteenderen/ThermalSampleR")`
 
 Once the package has been installed, you need to call the package into
 your current R session:
