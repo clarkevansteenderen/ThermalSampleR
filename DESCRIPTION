@@ -3,14 +3,15 @@ Type: Package
 Title: Calculate Sample Sizes Required For Critical Thermal Limits Experiments
 Version: 0.1.0
 Authors@R: c(person("Guy Frederick", "Sutton", role = c("aut", "cre"),
-                     email = "g.sutton@ru.ac.za", comment = "Wrote original R functions"),
+                     email = "g.sutton@ru.ac.za", comment = "Wrote original R functions, and adapted the Duffy et. al. 2021 R function"),
             person("Clarke JM", "van Steenderen", role = "aut",
                      email = "vsteenderen@gmail.com", comment = "Compiled the R package, and the associated R Shiny App"))
 Maintainer: Clarke van Steenderen <vsteenderen@gmail.com>
 Description: This package presents a range of simulations to aid researchers in determining appropriate sample sizes when performing critical
     thermal limits studies (e.g. CTmin/CTmin experiments). A number of wrapper functions are provided for plotting and summarising outputs
-    from these simulations. These simulations are presented in Owen et al. (unpublished). Sample size determinination for critical thermal
-    limits studies.
+    from these simulations. These simulations are presented in Owen, C., Sutton, G., Martin, G., van Steenderen, C., and Coetzee, J. Sample size determinination for critical thermal
+    limits studies. 2022. Physiological Entomology. Under review. The GUI version of this package is available on the R Shiny online server at: 
+    <https://clarkevansteenderen.shinyapps.io/ThermalSampleR_Shiny/> , or it is accessible via GitHub by typing: shiny::runUrl("https://github.com/clarkevansteenderen/ThermalSampleR_Shiny/archive/main.tar.gz") into the console in R.
 License: CC0
 Encoding: UTF-8
 LazyData: true
