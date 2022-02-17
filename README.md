@@ -328,7 +328,7 @@ tte = equiv_tost(
 tte
 ```
 
-<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tte.png" height = 350 width = 550>
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tote_graph_readme.png" height = 350 width = 550>
 
 ***Take-home message***: As long as the researchers were content with
 obtaining an estimate for the difference in CTmin between *Catorhintha
