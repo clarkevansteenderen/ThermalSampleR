@@ -383,6 +383,7 @@ equiv_tost = function(data,
     ) +
     scale_y_continuous(breaks = seq(0, 1, 0.25),
                        limits = c(0, 1)) +
+  scale_x_continuous(breaks=seq(round(max(plot_dat_mean$nsamp),0))) +
     theme(legend.position = "right") +
     guides(colour = "none")
 
@@ -457,6 +458,7 @@ equiv_tost = function(data,
     ) +
     scale_y_continuous(breaks = seq(0, 1, 0.25),
                        limits = c(0, 1)) +
+    scale_x_continuous(breaks=seq(round(max(plot_var_dat$nsamp),0)), expand = c(0, 0), limits = c(0, NA)) +
     theme(legend.position = "right") +
     guides(colour = "none")
 
