@@ -14,16 +14,17 @@
 #'
 #' @title equiv_tost
 #' @name equiv_tost
-#' @description Perform a Test of Total Equivalence as per Duffy et al. (2021)
+#' @description Perform a Test of Total Equivalence as adapted from Duffy et al. (2021) (<https://doi.org/10.1111/1365-2435.13928>)
 #' @param data Data frame contains raw data. Must contain a column with a population identifier (e.g. population ID), and a column containing critical
 #' thermal limit data (e.g. temperatures at which critical limits are reached).
 #' @param groups_col Factor. Column containing the name of the population of interest (group ID)
 #' @param groups_which Character. Which population should be analysed?
 #' @param response Numeric. Column containing thermal limit data for individual samples
-#' @param skews Numeric vector containing skewness parameter(s)
-#' @param equiv_margin Equivalence of subsets to full population CT estimate (unit = degree Celcius)
-#' @param pop_n Size of population to sample (will test subsamples of size pop_n - x against pop_n for equivalence) Defaults to population size = 30
-#' @param colrs Colours of the skewness paramaters
+#' @param skews Numeric. Vector containing skewness parameter(s). Defaults to 0, 1, 2, 10, 50.
+#' @param equiv_margin Numeric. Equivalence of subsets to full population CT estimate (unit = degree Celcius). Defaults to 1.
+#' @param pop_n Numeric. Size of population to sample (will test subsamples of size pop_n - x against pop_n for equivalence) Defaults to population size = 30
+#' @param colrs Character. Vector of colours for each skewness paramater value. E.g. if two skewness parameter values are set, choose two colours: colrs = c("blue", "red").
+#' Defaults to "blue", "red", "orange", "forestgreen", "lightgrey".
 #' @return Two plots; (a) equivalence of means, and (b) equivalence of variances
 #'
 #' @importFrom magrittr %>%

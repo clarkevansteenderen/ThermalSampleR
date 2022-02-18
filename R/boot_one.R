@@ -24,7 +24,7 @@
 #' @param groups_which Character. Which population should be analysed?
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations. Defaults to 3.
-#' @param iter Numeric. Number of bootstrap samples to draw. Defaults to 29.
+#' @param iter Numeric. Number of bootstrap samples. Defaults to 29.
 #' @param response Numeric. Column containing thermal limit data for individual samples
 #' @return A data frame of CTL summary statistics from bootstrap resamples
 #'

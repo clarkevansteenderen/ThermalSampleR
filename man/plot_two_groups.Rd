@@ -32,6 +32,7 @@ sims <- boot_two(data = coreid_data,
                         group2 = "Catorhintha schaffneri_NPM",
                         n_max = 30,
                         iter = 99)
+
 plots <- plot_two_groups(x = sims,
                          n_min = 3,
                          n_max = 30,

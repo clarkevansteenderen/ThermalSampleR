@@ -16,7 +16,7 @@ thermal limit data (e.g. temperatures at which critical limits are reached).}
 
 \item{n_min}{Numeric. Minimum sample size to extrapolate simulations. Defaults to 3.}
 
-\item{iter}{Numeric. Number of bootstrap samples to draw. Defaults to 29.}
+\item{iter}{Numeric. Number of bootstrap samples. Defaults to 29.}
 
 \item{response}{Numeric. Column containing thermal limit data for individual samples}
 }

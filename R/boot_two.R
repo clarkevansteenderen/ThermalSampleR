@@ -20,7 +20,7 @@
 #' @param groups_col Factor. Column containing names of two populations to compare
 #' @param n_max Numeric. Maximum sample size to extrapolate simulations.
 #' @param n_min Numeric. Minimum sample size to extrapolate simulations. Defaults to 3.
-#' @param iter Numeric. Number of bootstrap samples to draw. Defaults to 29.
+#' @param iter Numeric. Number of bootstrap samples. Defaults to 29.
 #' @param response Numeric. Column containing thermal limit data for individual samples.
 #' @param group1 String. Name of first population to compare.
 #' @param group2 String. Name of second population to compare.
