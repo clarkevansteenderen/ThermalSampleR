@@ -39,7 +39,7 @@ library(ThermalSampleR)
 **Via GitHub:**  
 
 ```{r}
-shiny::runUrl("https://github.com/CJMvS/ThermalSampleR_Shiny/archive/main.tar.gz")
+shiny::runUrl("https://github.com/clarkevansteenderen/ThermalSampleR_Shiny/archive/main.tar.gz")
 ```
 
 **Shiny Apps web server:** 
