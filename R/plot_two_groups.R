@@ -24,12 +24,16 @@
 #' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
 #' @param alpha_val Change the degree of shading of the graphs. Default is 0.2.
 #' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
+#' @return Two plots: (a) the precision of the estimates for the difference in CTmin
+#' between the two selected groups across sample sizes; (b)
+#' the 95% confidence interval of the mean difference in CTmin between the two selected groups.
 #' @import ggplot2
 #' @importFrom cowplot plot_grid
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr between
 #' @export
 #' @examples
+#' \donttest{
 #' sims <- boot_two(data = coreid_data,
 #'                         groups_col = col,
 #'                         response = response,
@@ -44,7 +48,7 @@
 #'                          colour_exp = "gold",
 #'                          colour_extrap = "darkgreen",
 #'                          legend.position = "right")
-#'
+#' }
 
 utils::globalVariables(c("id", 'sd_width_lower', 'sd_width_upper',  'prop_ci_contain'))
 
@@ -130,10 +134,11 @@ plot_two_groups <- function(x, n_min = 3, n_max, colour_exp = "blue", colour_ext
 
   # Combine the two plots
 
-  cowplot::plot_grid(width_plot,
+  two_groups_output = cowplot::plot_grid(width_plot,
                      ci_plot,
                      ncol = 2)
 
+  return(two_groups_output)
 }
 
 ##########################################################################

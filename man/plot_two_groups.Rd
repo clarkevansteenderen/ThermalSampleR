@@ -21,10 +21,16 @@ Defaults to 3.}
 
 \item{ggtheme}{The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().}
 }
+\value{
+Two plots: (a) the precision of the estimates for the difference in CTmin
+between the two selected groups across sample sizes; (b)
+the 95% confidence interval of the mean difference in CTmin between the two selected groups.
+}
 \description{
 Plot output from boot_two.
 }
 \examples{
+\donttest{
 sims <- boot_two(data = coreid_data,
                         groups_col = col,
                         response = response,
@@ -39,5 +45,5 @@ plots <- plot_two_groups(x = sims,
                          colour_exp = "gold",
                          colour_extrap = "darkgreen",
                          legend.position = "right")
-
+}
 }

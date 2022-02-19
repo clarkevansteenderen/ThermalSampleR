@@ -31,7 +31,7 @@
 #' @importFrom magrittr %>%
 #'
 #' @examples
-#'
+#' \donttest{
 #' head(coreid_data)
 #' sims <- boot_one(data = coreid_data,
 #'                     groups_col = col,
@@ -39,6 +39,7 @@
 #'                     response = response,
 #'                     n_max = 49,
 #'                     iter = 99)
+#' }
 #' @export
 
 

@@ -32,6 +32,7 @@
 #' @return A data frame of bootstrap resamples
 #' @importFrom magrittr %>%
 #' @examples
+#' \donttest{
 #' head(coreid_data)
 #' sims <- boot_two(data = coreid_data,
 #'                         groups_col = col,
@@ -40,6 +41,7 @@
 #'                         group2 = "Catorhintha schaffneri_NPM",
 #'                         n_max = 49,
 #'                         iter = 99)
+#' }
 #' @export
 
 

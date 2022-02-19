@@ -29,7 +29,7 @@ Two plots; (a) equivalence of means, and (b) equivalence of variances
 Perform a Test of Total Equivalence as adapted from Duffy et al. (2021) (<https://doi.org/10.1111/1365-2435.13928>)
 }
 \examples{
-
+\donttest{
 head(coreid_data)
 res <- equiv_tost(data = coreid_data,
                     groups_col = col,
@@ -39,4 +39,5 @@ res <- equiv_tost(data = coreid_data,
                     colrs = c("lightblue", "lightpink"),
                     equiv_margin = 1,
                     pop_n = 5)
+}
 }

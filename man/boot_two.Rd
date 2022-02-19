@@ -35,6 +35,7 @@ A data frame of bootstrap resamples
 Calculate difference in mean CT limits between two groups.
 }
 \examples{
+\donttest{
 head(coreid_data)
 sims <- boot_two(data = coreid_data,
                         groups_col = col,
@@ -43,4 +44,5 @@ sims <- boot_two(data = coreid_data,
                         group2 = "Catorhintha schaffneri_NPM",
                         n_max = 49,
                         iter = 99)
+}
 }

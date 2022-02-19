@@ -21,10 +21,15 @@ Defaults to 3.}
 
 \item{ggtheme}{The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().}
 }
+\value{
+Two plots; (a) precision of the CTmin estimate across experimental and extrapolated sample sizes; (b)
+the sampling distribution (range of plausible CTmin values) across experimental and extrapolated sample sizes.
+}
 \description{
 Plot output from boot_one.
 }
 \examples{
+\donttest{
 sims <- boot_one(coreid_data,
                     groups_col = col,
                     groups_which = "Catorhintha schaffneri_APM",
@@ -36,5 +41,5 @@ plot_one_group(x = sims,
                colour_exp = "darkblue",
                colour_extrap = "green",
                legend.position = "right")
-
+}
 }

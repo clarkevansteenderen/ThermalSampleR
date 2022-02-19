@@ -27,7 +27,7 @@ A data frame of CTL summary statistics from bootstrap resamples
 Calculate mean and CI's of CTL for a single population
 }
 \examples{
-
+\donttest{
 head(coreid_data)
 sims <- boot_one(data = coreid_data,
                     groups_col = col,
@@ -35,4 +35,5 @@ sims <- boot_one(data = coreid_data,
                     response = response,
                     n_max = 49,
                     iter = 99)
+}
 }

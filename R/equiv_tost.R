@@ -31,7 +31,7 @@
 #' @importFrom sn rsn
 #'
 #' @examples
-#'
+#' \donttest{
 #' head(coreid_data)
 #' res <- equiv_tost(data = coreid_data,
 #'                     groups_col = col,
@@ -41,6 +41,7 @@
 #'                     colrs = c("lightblue", "lightpink"),
 #'                     equiv_margin = 1,
 #'                     pop_n = 5)
+#' }
 #' @export
 
 # Define function
@@ -356,7 +357,8 @@ equiv_tost = function(data,
     dplyr::mutate(ymax = dplyr::case_when(ymax > 0 &
                                             ymax <= 1 ~ ymax,
                                           ymax > 1 ~ 1))
-
+  integer_breaks_mean <- function(x)
+    seq(floor(min(x)), ceiling(max(x)))
 
   # Make mean TOST plot
   plot_mean <- ggplot(
@@ -383,7 +385,8 @@ equiv_tost = function(data,
     ) +
     scale_y_continuous(breaks = seq(0, 1, 0.25),
                        limits = c(0, 1)) +
-  scale_x_continuous(breaks=seq(round(max(plot_dat_mean$nsamp),0))) +
+    #scale_x_continuous(breaks=integer_breaks_mean) +
+    scale_x_continuous(breaks=seq(round(max(plot_dat_mean$nsamp),0))) +
     theme(legend.position = "right") +
     guides(colour = "none")
 
@@ -433,6 +436,8 @@ equiv_tost = function(data,
                                             ymax <= 1 ~ ymax,
                                           ymax > 1 ~ 1))
 
+  integer_breaks_var <- function(x)
+    seq(floor(min(x)), ceiling(max(x)))
 
   # Make var TOST plot
   plot_var <- ggplot(
@@ -458,6 +463,7 @@ equiv_tost = function(data,
     ) +
     scale_y_continuous(breaks = seq(0, 1, 0.25),
                        limits = c(0, 1)) +
+    #scale_x_continuous(breaks=integer_breaks_var) +
     scale_x_continuous(breaks=seq(round(max(plot_var_dat$nsamp),0)), expand = c(0, 0), limits = c(0, NA)) +
     theme(legend.position = "right") +
     guides(colour = "none")

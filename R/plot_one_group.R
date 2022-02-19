@@ -24,10 +24,14 @@
 #' @param legend.position Position of the legend. Defaults to "top". Can be "bottom", "left", "right", or "none".
 #' @param alpha_val Change the degree of shading of the graphs. Default is 0.2.
 #' @param ggtheme The theme for the ggplot created. See ggplot2 themes for options. Default set to theme_classic().
+#' @return Two plots; (a) precision of the CTmin estimate across experimental and extrapolated sample sizes; (b)
+#' the sampling distribution (range of plausible CTmin values) across experimental and extrapolated sample sizes.
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr between
 #' @export
 #' @examples
+#' \donttest{
 #' sims <- boot_one(coreid_data,
 #'                     groups_col = col,
 #'                     groups_which = "Catorhintha schaffneri_APM",
@@ -39,7 +43,7 @@
 #'                colour_exp = "darkblue",
 #'                colour_extrap = "green",
 #'                legend.position = "right")
-#'
+#'}
 
 utils::globalVariables(c('id', 'sd_width_lower', 'sd_width_upper', 'sims', 'prop_ci_contain'))
 
@@ -88,7 +92,7 @@ plot_one_group <- function(x = sims, n_max, n_min = 3, colour_exp = "blue", colo
           axis.title.x = element_text(margin = unit(c(2, 0, 0, 0), "mm")),
           axis.title.y = element_text(margin = unit(c(0, 4, 0, 0), "mm")),
           legend.position = legend.position) +
-    guides(colour = FALSE)
+    guides(colour = "none")
 
   # Plot the width of the 95% CI
   contain_plot <- ggplot2::ggplot(data = {{ x }}, aes(x = sample_size,
@@ -114,10 +118,11 @@ plot_one_group <- function(x = sims, n_max, n_min = 3, colour_exp = "blue", colo
           legend.position = legend.position)
 
   # Return the plots
-  cowplot::plot_grid(width_plot,
+     one_group_output = cowplot::plot_grid(width_plot,
                      contain_plot,
                      ncol = 2)
 
+     return(one_group_output)
 
 }
 
