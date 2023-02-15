@@ -348,11 +348,11 @@ tte
 
 Inspecting both panels indicates that the researchers would have been able to obtain CT estimates (in terms of both the mean and variance) equivalent to within 1 degree Celsius of the estimates derived from the full datset (n = 30) if they had tested approximately 10 - 12 individuals, irrespective of the skewness in the underlying data. Hindsight is a great tool. 
 
-The more important application of the TOTE approach is to iteratively assess sample sizes during the course of the experiment. For example, [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928) recommend collecting some pilot data, and then assess the sample size requirements to estimate CT traits. For example, had we tested 8 insects in a pilot study and assessed the sample size requirements, we would obtain the graph below. 
+The more important application of the TOTE approach is to iteratively assess sample sizes during the course of the experiment. For example, [Duffy et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2435.13928) recommend collecting some pilot data, and then assess the sample size requirements to estimate CT traits. For example, had we tested 6 insects in a pilot study and assessed the sample size requirements, we would obtain the graph below. 
 
-<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tote_graph_readme_8.png" height = 350 width = 850>
+<img src="https://github.com/clarkevansteenderen/ThermalSampleR/blob/main/Figs/tte_plot_6.png" height = 350 width = 850>
 
-It is evident that testing 8 individuals was not sufficient to obtain a reliable estimate of the CT trait in this example. The researchers would then add additional samples to their study (e.g. add another 10 individuals), and then re-test the sample size requirements, repeating the process until the TOTE curves plateu. 
+It is evident that testing 6 individuals was not sufficient to obtain a reliable estimate of the CT trait in this example. The researchers would then add additional samples to their study (e.g. add another 10 individuals), and then re-test the sample size requirements, repeating the process until the TOTE curves plateu. 
 
 ## Acknowledgments
 
