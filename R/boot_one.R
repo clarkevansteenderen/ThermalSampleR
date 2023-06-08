@@ -72,7 +72,7 @@ boot_one <- function(data,
                                                              # Sample with replacement
                                                              replace = TRUE))) %>%
     dplyr::mutate(calc = purrr::map(sample_data,
-                                    ~dplyr::summarize(.,
+                                    ~dplyr::reframe(.,
                                                       mean_val = mean( {{ response }} ),
                                                       sd_val = stats::sd(( {{ response }} ))))) %>%
     dplyr::select({{ groups_col }}, sample_size, iter, calc) %>%
