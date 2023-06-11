@@ -19,10 +19,12 @@ permissions:
 
 jobs:
   build:
+  # Add different operating systems here
     runs-on: [windows-latest]
     strategy:
       matrix:
-        r-version: ['4.1.2']
+      # Add R versions here to test
+        r-version: ['4.1.1', '4.1.2']
 
     steps:
       - uses: actions/checkout@v3
