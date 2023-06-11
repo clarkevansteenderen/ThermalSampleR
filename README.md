@@ -16,7 +16,7 @@ discussed in detail below and illustrated with full use-cases.
 `ThermalSampleR` is a companion package to the pending publication
 (currently under review):
 
-Owen, C.A., Sutton, G.F., Martin, G.D., van Steenderen, C.J.M., and
+van Steenderen, C.J.M., Sutton, G.F., Owen, C.A., Martin, G.D., and
 Coetzee, J.A. Sample size planning for critical thermal limits studies.
 
 ## 1. Installation
