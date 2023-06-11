@@ -40,7 +40,8 @@ Imports: tidyr,
     cowplot,
     EnvStats,
     sn,
-    janitor
+    janitor,
+    testthat
 RoxygenNote: 7.1.2
 Suggests: 
     rmarkdown,
