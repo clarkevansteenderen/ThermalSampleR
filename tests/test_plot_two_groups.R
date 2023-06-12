@@ -1,4 +1,5 @@
 library(ThermalSampleR)
+library(testthat)
 coreid = ThermalSampleR::coreid_data
 
 boot_two(data=coreid, groups_col=col,
@@ -29,7 +30,7 @@ plot_bt_two = plot_two_groups(
 ########################################
 # Test for the class of plot_one_group
 ########################################
-test_that("plot_two_groups output is the ggplot class", {
+testthat::test_that("plot_two_groups output is the ggplot class", {
 
-  expect_true(inherits(plot_bt_two, "ggplot"))
+  testthat::expect_true(inherits(plot_bt_two, "ggplot"))
 })
