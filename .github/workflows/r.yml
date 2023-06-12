@@ -20,7 +20,7 @@ permissions:
 jobs:
   build:
   # Add different operating systems here
-    runs-on: [windows-latest, ubuntu-latest]
+    runs-on: [windows-latest]
     strategy:
       matrix:
       # Add R versions here to test
@@ -38,13 +38,13 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"))
+          install.packages(c("remotes", "rcmdcheck", "testthat))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
       # test the R scripts in the testthat folder
-      # - name: Run tests
-      #   run: |
-      #    Rscript -e 'testthat::test_dir("testthat")'
+      - name: Run tests
+        run: |
+         Rscript -e 'testthat::test_dir("testthat")'
