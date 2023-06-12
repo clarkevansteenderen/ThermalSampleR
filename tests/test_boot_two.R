@@ -1,4 +1,5 @@
 library(ThermalSampleR)
+library(testthat)
 coreid = ThermalSampleR::coreid_data
 
 ############################################################################################
@@ -26,10 +27,10 @@ bt_two <- boot_two(
   iter = 15)
 
 
-test_that("No error is thrown in boot_two function", {
+testthat::test_that("No error is thrown in boot_two function", {
 
   # Call the function and check for errors
-  expect_no_error(boot_two(data=coreid, groups_col=col,
+  testthat::expect_no_error(boot_two(data=coreid, groups_col=col,
                            group1="Catorhintha schaffneri_APM",
                            group2="Catorhintha schaffneri_NPM",
                            n_max=49, iter=15, response=response))
@@ -38,11 +39,11 @@ test_that("No error is thrown in boot_two function", {
 ########################################
 # Test for the class of bt_two output
 ########################################
-test_that("boot_two output is the list class", {
+testthat::test_that("boot_two output is the list class", {
 
-  expect_type(bt_two, "list")
-  expect_type(bt_two$mean_low_ci[1], "double")
-  expect_equal(ncol(bt_two), 11)
+  testthat::expect_type(bt_two, "list")
+  testthat::expect_type(bt_two$mean_low_ci[1], "double")
+  testthat::expect_equal(ncol(bt_two), 11)
 })
 
 ########################################
@@ -52,10 +53,10 @@ test_that("boot_two output is the list class", {
 bt_two_buggy = bt_two
 bt_two_buggy$mean_low_ci[1] = NA
 
-test_that("No NA values in the dataframe", {
-  expect_false(any(is.na(bt_two)), info = "The dataframe contains NA values.")
+testthat::test_that("No NA values in the dataframe", {
+  testthat::expect_false(any(is.na(bt_two)), info = "The dataframe contains NA values.")
 })
 
-test_that("NA values present in the dataframe", {
-  expect_true(any(is.na(bt_two_buggy)), info = "The dataframe does not contain NA values.")
+testthat::test_that("NA values present in the dataframe", {
+  testthat::expect_true(any(is.na(bt_two_buggy)), info = "The dataframe does not contain NA values.")
 })
