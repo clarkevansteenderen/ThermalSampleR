@@ -1,4 +1,5 @@
 library(ThermalSampleR)
+library(testthat)
 coreid = ThermalSampleR::coreid_data
 
 bt_one = boot_one(data=coreid, groups_col=col,
@@ -28,19 +29,19 @@ plot_bt_one = plot_one_group(
 ########################################
 # Test for the class of plot_one_group
 ########################################
-test_that("plot_one_group output is the ggplot class", {
+testthat::test_that("plot_one_group output is the ggplot class", {
 
-  expect_true(inherits(plot_bt_one, "ggplot"))
+  testthat::expect_true(inherits(plot_bt_one, "ggplot"))
 })
 
 ##############################################
 # Test for the correctness of user input file
 ##############################################
 
-test_that("Error: incorrect input data", {
+testthat::test_that("Error: incorrect input data", {
 
   # Call the function and check for errors
-  expect_error(plot_one_group(
+  testthat::expect_error(plot_one_group(
     # Variable containing the output from running `boot_one` function
     x = bt_oneee, # incorrect name here -> should throw an error
     # Minimum sample size to plot
