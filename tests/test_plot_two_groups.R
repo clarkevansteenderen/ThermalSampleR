@@ -2,7 +2,7 @@ library(ThermalSampleR)
 library(testthat)
 coreid = ThermalSampleR::coreid_data
 
-boot_two(data=coreid, groups_col=col,
+bt_two = boot_two(data=coreid, groups_col=col,
          group1="Catorhintha schaffneri_APM",
          group2="Catorhintha schaffneri_NPM",
          n_max=49, iter=15, response=response)
