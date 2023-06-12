@@ -47,4 +47,4 @@ jobs:
       # test the R scripts in the testthat folder
       - name: Run tests
         run: |
-         Rscript -e 'testthat::test_dir("testthat/")'
+         Rscript -e 'testthat::test_dir("tests")'
