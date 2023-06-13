@@ -47,4 +47,4 @@ jobs:
       # test the R scripts in the testthat folder
       - name: Run tests
         run: |
-         Rscript -e 'testthat::test_dir("https://github.com/clarkevansteenderen/ThermalSampleR/tree/main/tests")'
+         Rscript -e 'testthat::test_dir("https:/github.com/clarkevansteenderen/ThermalSampleR/tree/main/tests")'
