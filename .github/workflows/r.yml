@@ -45,6 +45,6 @@ jobs:
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
       # test the R scripts in the testthat folder
-      - name: Run tests
-        run: |
-         Rscript -e 'testthat::test_dir("https:/github.com/clarkevansteenderen/ThermalSampleR/tree/main/tests")'
+      #- name: Run tests
+       # run: |
+        # Rscript -e 'testthat::test_dir("https:/github.com/clarkevansteenderen/ThermalSampleR/tree/main/tests")'
