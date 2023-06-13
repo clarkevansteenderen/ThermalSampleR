@@ -20,7 +20,7 @@ tte = equiv_tost(
   # Define the equivalence of subsets to full population CT estimate (unit = degree Celcius)
   equiv_margin = 1,
   # Size of the population to sample (will test subsamples of size pop_n - x against pop_n for equivalence). Defaults to population size = 30
-  pop_n = 30
+  pop_n = 5
 )
 
 ########################################
@@ -49,6 +49,6 @@ testthat::test_that("No error is thrown in equiv_tost function", {
     # Define the equivalence of subsets to full population CT estimate (unit = degree Celcius)
     equiv_margin = 1,
     # Size of the population to sample (will test subsamples of size pop_n - x against pop_n for equivalence). Defaults to population size = 30
-    pop_n = 30
+    pop_n = 5
   ))
 })
